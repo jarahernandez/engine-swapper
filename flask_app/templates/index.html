@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+
+<body>
+
+    <h1>Engine Swapper</h1>
+
+    <div>
+        <h2>Sign up</h2>
+        {% with messages = get_flashed_messages(category_filter=["register"]) %}
+            {% if messages %}
+                <div>
+                    {% for message in messages %}
+                        <p>* {{message}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action="/signup" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+            </div>
+            <div>
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" name="confirm_password">
+            </div>
+            <input type="submit" value="Sign up">
+        </form>
+    </div>
+
+    <div>
+        <h2>Log in</h2>
+        {% with messages = get_flashed_messages(category_filter=["login"]) %}
+            {% if messages %}
+                <div>
+                    {% for message in messages %}
+                        <p>* {{message}}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form action="/login" method="POST">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+            </div>
+            <input type="submit" value="Log in">
+        </form>
+    </div>
+
+</body>
+
+</html>
